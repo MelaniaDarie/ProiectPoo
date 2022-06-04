@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0066ff;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proiectpoo.controller.AfterlogController">
+   <children>
+      <Label layoutX="91.0" layoutY="35.0" text="Welcome!" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="68.0" layoutY="81.0" text="Please select the city area that you want to park in " textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="167.0" layoutY="148.0" prefHeight="25.0" prefWidth="67.0" text="Area 0" textAlignment="JUSTIFY" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="167.0" layoutY="213.0" prefHeight="25.0" prefWidth="67.0" text="Area 1" textAlignment="JUSTIFY" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="167.0" layoutY="286.0" prefHeight="25.0" prefWidth="67.0" text="Area 2" textAlignment="JUSTIFY" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="15.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="choice1" layoutX="254.0" layoutY="148.0" prefWidth="150.0" style="-fx-cursor: hand;" />
+      <ChoiceBox fx:id="choice2" layoutX="254.0" layoutY="213.0" prefWidth="150.0" style="-fx-cursor: hand;" />
+      <ChoiceBox fx:id="choice3" layoutX="254.0" layoutY="286.0" prefWidth="150.0" style="-fx-cursor: hand;" />
+      <Button fx:id="readyButton" layoutX="264.0" layoutY="348.0" mnemonicParsing="false" onAction="#switchTimeSelection" style="-fx-background-color: #000dff; -fx-cursor: hand;" text="Go to next step" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="15.0" />
+         </font>
+         <effect>
+            <Glow />
+         </effect>
+      </Button>
+      <Button fx:id="readyButton1" layoutX="514.0" layoutY="21.0" mnemonicParsing="false" onAction="#logout" style="-fx-background-color: #000dff; -fx-cursor: hand;" text="Logout" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="10.0" />
+         </font>
+         <effect>
+            <Glow />
+         </effect>
+      </Button>
+   </children>
+</AnchorPane>

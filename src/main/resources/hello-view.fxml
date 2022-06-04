@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proiectpoo.controller.LoginController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0066ff;">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="7.0" layoutY="213.0" prefHeight="15.0" prefWidth="186.0" text="Need some assistance? Give us a call!" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="240.0" prefHeight="15.0" prefWidth="104.0" text="+40 (723) 533 111" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.06666667014360428" green="0.25882354378700256" blue="0.658823549747467" />
+               </color>
+            </DropShadow>
+         </effect>
+      </AnchorPane>
+      <AnchorPane prefHeight="400.0" prefWidth="400.0">
+         <children>
+            <ImageView fitHeight="67.0" fitWidth="75.0" layoutX="164.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@logo2.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="39.0" layoutY="144.0" text="Email address">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="70.0" layoutY="191.0" text="Password">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="email" layoutX="164.0" layoutY="140.0" promptText="Email" style="-fx-cursor: hand;" />
+            <Button fx:id="loginButton" layoutX="128.0" layoutY="275.0" mnemonicParsing="false" onAction="#login" prefHeight="28.0" prefWidth="149.0" style="-fx-background-color: #0066ff; -fx-cursor: hand;" text="Login" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="WAIT" />
+               </cursor>
+            </Button>
+            <Label layoutX="106.0" layoutY="316.0" prefHeight="15.0" prefWidth="135.0" text="You don't have an account?" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="10.0" />
+               </font>
+            </Label>
+            <Button fx:id="signUpButton" layoutX="239.0" layoutY="313.0" mnemonicParsing="false" onAction="#switchToSignUp" style="-fx-background-color: tansparent; -fx-cursor: hand;" text="Sign up..." textFill="#0066ff">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Label fx:id="wrongEmail" layoutX="168.0" layoutY="128.0" text="Wrong email!" textFill="RED" visible="false">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="wrongPassword" layoutX="168.0" layoutY="175.0" text="Wrong password!" textFill="RED" visible="false">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="10.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="password" layoutX="161.0" layoutY="187.0" promptText="Password" />
+         </children>
+      </AnchorPane>
+   </children>
+</HBox>

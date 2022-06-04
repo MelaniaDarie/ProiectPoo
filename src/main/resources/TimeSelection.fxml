@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0066ff;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proiectpoo.controller.TimeSelectionController">
+   <children>
+      <Label layoutX="158.0" layoutY="59.0" text="Please select parking time" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="20.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="timeChoice" layoutX="211.0" layoutY="182.0" prefWidth="150.0" style="-fx-cursor: hand;" />
+      <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToArea" style="-fx-background-color: #000dff; -fx-cursor: hand;" text="Back " textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="10.0" />
+         </font>
+      </Button>
+      <Button layoutX="199.0" layoutY="307.0" mnemonicParsing="false" onAction="#lastStep" style="-fx-background-color: #000dff; -fx-cursor: hand;" text="Create parking ticket" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
