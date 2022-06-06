@@ -111,11 +111,19 @@ public class Ticket {
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 ", hours=" + hours +
-                "userId="+userId+
+                ", userId="+userId+
                 '}';
     }
 
-   /* public Userlog getUserlogByUserId() {
+    public Userlog getUserlog() {
+        return userlog;
+    }
+
+    public void setUserlog(Userlog userlog) {
+        this.userlog = userlog;
+    }
+
+    /* public Userlog getUserlogByUserId() {
         return userlogByUserId;
     }
 

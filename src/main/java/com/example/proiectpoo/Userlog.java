@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
@@ -16,26 +17,30 @@ import java.util.Objects;
 public class Userlog {
 
 
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Id
-        @Column(name = "user_id",nullable = false)
-        private long userId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "user_id",nullable = false)
+    private long userId;
 
-        @Basic
-        @Column(name = "email")
-        private String email;
+    @Basic
+    @Column(name = "email")
+    private String email;
 
-        @Basic
-        @Column(name = "password")
-        private String password;
+    @Basic
+    @Column(name = "password")
+    private String password;
 
-        @Basic
-        @Column(name = "phone")
-        private String phone;
+    @Basic
+    @Column(name = "phone")
+    private String phone;
 
-       @OneToMany(mappedBy = "userlog",orphanRemoval = true,cascade = CascadeType.ALL)
-       //private Collection<Ticket> tickets;
-       private List<Ticket> comments = new ArrayList<>();
+
+    @OneToMany(mappedBy = "userlog", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Collection<Ticket> tickets;
+    //private List<Ticket> tickets = new ArrayList<>();
+    /*@OneToMany(mappedBy = "userlog",orphanRemoval = true,cascade = CascadeType.ALL)
+    private Collection<Ticket> tickets;
+    private List<Ticket> comments = new ArrayList<>();*/
 
     public Userlog() {
 
@@ -101,7 +106,16 @@ public class Userlog {
                 '}';
     }
 
-   /* public Collection<Ticket> getTicketsByUserId() {
+    public Collection<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(Collection<Ticket> tickets) {
+        this.tickets = tickets;
+    }
+
+
+    /*public Collection<Ticket> getTicketsByUserId() {
         return ticketsByUserId;
     }
 

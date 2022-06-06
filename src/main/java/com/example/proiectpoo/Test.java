@@ -6,7 +6,7 @@ import com.example.proiectpoo.sevice.UserlogService;
 
 public class Test {
     public static void main(String[] args){
-        UserlogService userlogService = new UserlogService();
+       /* UserlogService userlogService = new UserlogService();
         Userlog userlog = null;
         try {
             userlog = userlogService.findClient("mela@gmail.com","1234");
@@ -20,7 +20,7 @@ public class Test {
            userlog = userlogService.findClient("vvv@yahoo.com", "345");
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
         Ticket newTicket = new Ticket();
         newTicket.setHours(TimeTicket.ONE);
         newTicket.setName("area1");
