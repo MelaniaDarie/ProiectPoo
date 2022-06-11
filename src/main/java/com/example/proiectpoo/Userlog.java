@@ -3,6 +3,7 @@ package com.example.proiectpoo;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.Objects;
 @Builder
 @AllArgsConstructor
 @Table(name="userlog")
-public class Userlog {
+public class Userlog implements Serializable {
 
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,20 +24,19 @@ public class Userlog {
     private long userId;
 
     @Basic
-    @Column(name = "email")
+    @Column(name = "email", nullable = false, length = -1)
     private String email;
 
     @Basic
-    @Column(name = "password")
+    @Column(name = "password", nullable = false, length = -1)
     private String password;
 
     @Basic
-    @Column(name = "phone")
+    @Column(name = "phone", nullable = false, length = -1)
     private String phone;
 
-
-    @OneToMany(mappedBy = "userlog")
-    private List<Ticket> tickets;
+    @OneToMany(mappedBy = "userlog",cascade = CascadeType.ALL)
+    private List<Ticket> tickets = new ArrayList<>();
     //private List<Ticket> tickets = new ArrayList<>();
     /*@OneToMany(mappedBy = "userlog",orphanRemoval = true,cascade = CascadeType.ALL)
     private Collection<Ticket> tickets;

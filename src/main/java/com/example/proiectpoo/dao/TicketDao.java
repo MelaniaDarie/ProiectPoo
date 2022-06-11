@@ -32,13 +32,13 @@ public class TicketDao extends GenericDao<Ticket> {
         }
     }
 
-    public List<Ticket> find(String userId) {
+    public List<Ticket> find(Integer userId) {
         EntityManager em = getEntityManager();
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<Ticket> q = cb.createQuery(Ticket.class);
 
         Root<Ticket> c = q.from(Ticket.class);
-        ParameterExpression<String> paramName = cb.parameter(String.class);
+        ParameterExpression<Integer> paramName = cb.parameter(Integer.class);
         q.select(c).where(cb.equal(c.get("ticketId"), paramName));
         TypedQuery<Ticket> query = em.createQuery(q);
         query.setParameter(paramName, userId);

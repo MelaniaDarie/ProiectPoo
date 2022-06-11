@@ -31,10 +31,10 @@ public class TicketService {
         return ticketDao.findAll();
     }
 
-    public Ticket findClient(String name) throws Exception {
-        List<Ticket> clients = ticketDao.find(name);
+    public Ticket findClient(Integer id) throws Exception {
+        List<Ticket> clients = ticketDao.find(id);
         if (clients.size() == 0) {
-            throw new Exception("Name not found!");
+            throw new Exception("Id not found!");
         }
         Ticket c = clients.get(0);
         return c;

@@ -3,43 +3,56 @@ package com.example.proiectpoo;
 import com.example.proiectpoo.enumeration.TimeTicket;
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Entity
-@Table(name = "ticket", schema = "public", catalog = "JavaFx")
-public class Ticket {
+@Table(name = "ticket")
+public class Ticket implements Serializable {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "ticket_id")
+    @Column(name = "ticket_id", nullable = false)
     private int ticketId;
 
     @Basic
-    @Column(name = "name")
+    @Column(name = "name", nullable = false, length = 30)
     private String name;
 
     @Basic
-    @Column(name = "price")
+    @Column(name = "price", nullable = false)
     private Integer price;
 
+    @Basic
     @Enumerated(EnumType.STRING)
+    @Column(name = "hours", nullable = false, length = -1)
     private TimeTicket hours;
 
-    @Basic
-    @Column(name = "user_id")
-    private Integer userId;
+   // @Basic
+    //@Column(name = "user_id", nullable = true)
+   // private Integer userId;
 
-   @ManyToOne
-   @JoinColumn(name = "user_id", referencedColumnName = "user_id")
-    private Userlog userlog;
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    private Userlog userlog = new Userlog();
+
+
+/* public Userlog getUserlogByUserId() {
+        return userlogByUserId;
+    }
+
+    public void setUserlogByUserId(Userlog userlogByUserId) {
+        this.userlogByUserId = userlogByUserId;
+    }*/
 
     public Ticket() {
 
     }
 
-    public Ticket(String name, Integer price, TimeTicket hours, Integer userId) {
+    public Ticket(String name, Integer price, TimeTicket hours,Userlog userlog) {
         this.name = name;
         this.price = price;
         this.hours = hours;
-        this.userId= userId;
+        this.userlog = userlog;
     }
 
     public int getTicketId() {
@@ -62,6 +75,10 @@ public class Ticket {
         return price;
     }
 
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
     public void setPrice(Integer price) {
         this.price = price;
     }
@@ -74,13 +91,6 @@ public class Ticket {
         this.hours = hours;
     }
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -93,8 +103,6 @@ public class Ticket {
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (price != null ? !price.equals(that.price) : that.price != null) return false;
         if (hours != null ? !hours.equals(that.hours) : that.hours != null) return false;
-        if (userId != null ? !userId.equals(that.userId) : that.userId != null) return false;
-
         return true;
     }
 
@@ -104,7 +112,6 @@ public class Ticket {
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (price != null ? price.hashCode() : 0);
         result = 31 * result + (hours != null ? hours.hashCode() : 0);
-        result = 31 * result + (userId != null ? userId.hashCode() : 0);
         return result;
     }
 
@@ -114,7 +121,6 @@ public class Ticket {
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 ", hours=" + hours +
-                ", userId="+userId+
                 '}';
     }
 
@@ -126,11 +132,4 @@ public class Ticket {
         this.userlog = userlog;
     }
 
-    /* public Userlog getUserlogByUserId() {
-        return userlogByUserId;
-    }
-
-    public void setUserlogByUserId(Userlog userlogByUserId) {
-        this.userlogByUserId = userlogByUserId;
-    }*/
 }
