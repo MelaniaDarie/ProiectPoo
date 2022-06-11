@@ -11,21 +11,24 @@ public class Ticket {
     @Id
     @Column(name = "ticket_id")
     private int ticketId;
+
     @Basic
     @Column(name = "name")
     private String name;
+
     @Basic
     @Column(name = "price")
     private Integer price;
-    @Basic
-    @Column(name = "hours")
+
+    @Enumerated(EnumType.STRING)
     private TimeTicket hours;
+
     @Basic
     @Column(name = "user_id")
     private Integer userId;
 
-   @ManyToOne(fetch = FetchType.LAZY)
-   // @JoinColumn(name = "user_id"/*, referencedColumnName = "user_id"*/)
+   @ManyToOne
+   @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private Userlog userlog;
 
     public Ticket() {

@@ -4,11 +4,13 @@ import com.example.proiectpoo.enumeration.TimeTicket;
 import com.example.proiectpoo.sevice.TicketService;
 import com.example.proiectpoo.sevice.UserlogService;
 
+import java.sql.SQLOutput;
+
 public class Test {
     public static void main(String[] args){
-       /* UserlogService userlogService = new UserlogService();
+       UserlogService userlogService = new UserlogService();
         Userlog userlog = null;
-        try {
+        /*try {
             userlog = userlogService.findClient("mela@gmail.com","1234");
         } catch (Exception e) {
             e.printStackTrace();
@@ -21,11 +23,9 @@ public class Test {
         } catch (Exception e) {
             e.printStackTrace();
         }*/
-        Ticket newTicket = new Ticket();
-        newTicket.setHours(TimeTicket.ONE);
-        newTicket.setName("area1");
-        newTicket.setPrice(2);
-        newTicket.setUserId(2);
+        //userlogService.updateClient(new Userlog("vvv@yahoo.com","345","0789898989"));
+        Ticket newTicket = new Ticket("area1",2,TimeTicket.ONE,2);
+        System.out.println(newTicket);
       TicketService ticketService = new TicketService();
       ticketService.addClient(newTicket);
     }

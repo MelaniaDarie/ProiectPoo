@@ -35,8 +35,8 @@ public class Userlog {
     private String phone;
 
 
-    @OneToMany(mappedBy = "userlog", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Collection<Ticket> tickets;
+    @OneToMany(mappedBy = "userlog")
+    private List<Ticket> tickets;
     //private List<Ticket> tickets = new ArrayList<>();
     /*@OneToMany(mappedBy = "userlog",orphanRemoval = true,cascade = CascadeType.ALL)
     private Collection<Ticket> tickets;
@@ -106,20 +106,12 @@ public class Userlog {
                 '}';
     }
 
-    public Collection<Ticket> getTickets() {
+    public List<Ticket> getTickets() {
         return tickets;
     }
 
-    public void setTickets(Collection<Ticket> tickets) {
+    public void setTickets(List<Ticket> tickets) {
         this.tickets = tickets;
     }
 
-
-    /*public Collection<Ticket> getTicketsByUserId() {
-        return ticketsByUserId;
-    }
-
-    public void setTicketsByUserId(Collection<Ticket> ticketsByUserId) {
-        this.ticketsByUserId = ticketsByUserId;
-    }*/
 }

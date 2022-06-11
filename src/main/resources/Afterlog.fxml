@@ -36,7 +36,7 @@
       <ChoiceBox fx:id="choice1" layoutX="254.0" layoutY="148.0" prefWidth="150.0" style="-fx-cursor: hand;" />
       <ChoiceBox fx:id="choice2" layoutX="254.0" layoutY="213.0" prefWidth="150.0" style="-fx-cursor: hand;" />
       <ChoiceBox fx:id="choice3" layoutX="254.0" layoutY="286.0" prefWidth="150.0" style="-fx-cursor: hand;" />
-      <Button fx:id="readyButton" layoutX="264.0" layoutY="348.0" mnemonicParsing="false" onAction="#switchTimeSelection" style="-fx-background-color: #000dff; -fx-cursor: hand;" text="Go to next step" textFill="WHITE">
+      <Button fx:id="readyButton" layoutX="264.0" layoutY="348.0" mnemonicParsing="false" onAction="#switchTimeSelection" style="-fx-background-color: #000dff; -fx-cursor: hand;" text="Go to next step" textFill="WHITE" >
          <font>
             <Font name="Arial Rounded MT Bold" size="15.0" />
          </font>
