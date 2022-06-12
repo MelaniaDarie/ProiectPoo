@@ -35,7 +35,6 @@ public class Test {
         }
         // ticketService.addClient();
         System.out.println(ticket);
-        ticketService.addClient(new Ticket("area3",3,TimeTicket.ONE,userlog));
 
     }
 }

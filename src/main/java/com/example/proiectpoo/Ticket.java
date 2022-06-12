@@ -20,7 +20,7 @@ public class Ticket implements Serializable {
 
     @Basic
     @Column(name = "price", nullable = false)
-    private Integer price;
+    private Integer price = 3;
 
     @Basic
     @Enumerated(EnumType.STRING)
@@ -48,11 +48,10 @@ public class Ticket implements Serializable {
 
     }
 
-    public Ticket(String name, Integer price, TimeTicket hours,Userlog userlog) {
+    public Ticket(String name, Integer price, TimeTicket hours) {
         this.name = name;
         this.price = price;
         this.hours = hours;
-        this.userlog = userlog;
     }
 
     public int getTicketId() {

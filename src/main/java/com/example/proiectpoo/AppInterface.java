@@ -16,7 +16,7 @@ public class AppInterface extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            URL url = new File("src/main/resources/Afterlog.fxml").toURI().toURL();
+            URL url = new File("src/main/resources/SignUp.fxml").toURI().toURL();
             Parent root = FXMLLoader.load(url);
             Scene scene = new Scene(root);
             primaryStage.setResizable(false);

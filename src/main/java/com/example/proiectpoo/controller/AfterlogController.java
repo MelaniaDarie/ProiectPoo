@@ -1,5 +1,9 @@
 package com.example.proiectpoo.controller;
 
+import com.example.proiectpoo.Ticket;
+import com.example.proiectpoo.Userlog;
+import com.example.proiectpoo.sevice.TicketService;
+import com.example.proiectpoo.sevice.UserlogService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +21,7 @@ import java.util.ResourceBundle;
 
 public class AfterlogController implements Initializable {
 
+    private TicketService ticketService;
     private int userId;
 
     public int getUserId() {
@@ -53,13 +58,33 @@ public class AfterlogController implements Initializable {
 
     @FXML
     public void switchTimeSelection(ActionEvent event) throws IOException {
-        URL url = new File("src/main/resources/TimeSelection.fxml").toURI().toURL();
-        // FXMLLoader loader  = new FXMLLoader(getClass().getResource("/resources/hello-view.fxml"));
-        root = FXMLLoader.load(url);
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene((scene));
-        stage.show();
+
+        ticketService = new TicketService();
+
+        try {
+            Ticket ticket = new Ticket();
+            ticket.setName(choice1.getValue());
+            ticket.setName(choice2.getValue());
+            ticket.setName(choice3.getValue());
+            ticketService.addClient(ticket);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Can't add area to Ticket!");
+        }
+
+
+        try{
+            URL url = new File("src/main/resources/TimeSelection.fxml").toURI().toURL();
+            // FXMLLoader loader  = new FXMLLoader(getClass().getResource("/resources/hello-view.fxml"));
+            root = FXMLLoader.load(url);
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene((scene));
+            stage.show();
+        }  catch (Exception e){
+            System.out.println("Not found TimeSelection!");
+        }
+
     }
 
     @FXML
